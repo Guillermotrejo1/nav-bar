@@ -1,0 +1,38 @@
+.container{
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  width: 50%;
+}
+
+.login{
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.register{
+  font-size: 24px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.logout__wrapper{
+  width: 100%;
+}
+
+.logout{
+  cursor: pointer;
+  margin-left: 12px;
+  width: 40px;
+  background-color: #4d4dff;
+  border-radius: 50%;
+  justify-content: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  border: none;
+}

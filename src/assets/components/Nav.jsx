@@ -49,7 +49,15 @@ function Nav() {
 
   return (
     <div className="container">
-       <img
+      {loading ? (
+        <>
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+          <div className="skeleton__logout"></div>
+        </>
+      ) : (
+        <>
+          <img
             className="logo"
             src="https://frontendsimplified.com/_nuxt/img/Frontend%20Simplified%20Logo.853fbda.png"
             alt=""
@@ -67,9 +75,8 @@ function Nav() {
               </button>
             </span>
           </div>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton__logout"></div>
+        </>
+      )}
     </div>
   );
 }

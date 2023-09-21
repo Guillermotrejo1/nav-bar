@@ -71,7 +71,7 @@ function Nav() {
             </button>
             <span className="logout__wrapper">
               <button className="logout" onClick={logout}>
-                e
+                E
               </button>
             </span>
           </div>

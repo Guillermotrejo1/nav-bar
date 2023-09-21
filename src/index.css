@@ -37,6 +37,10 @@
   border: none;
 }
 
+.skeleton__wrapper{
+  display: flex;
+}
+
 .skeleton{
   width: 100px;
   height: 50px;

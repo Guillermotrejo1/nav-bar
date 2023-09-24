@@ -10,7 +10,7 @@ import {
 function Nav() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -42,7 +42,7 @@ function Nav() {
       .catch((error) => {
         console.log(error);
       });
-    }
+  }
   function logout() {
     signOut(auth);
     setUser({});
@@ -50,13 +50,20 @@ function Nav() {
 
   return (
     <div className="container">
-      {
-        loading ? <><div className="skeleton"></div>
-        <div className="skeleton"></div></> : null
-      }
-      {loading === false ? (
+      {loading ? (
         <>
-          
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+        </>
+      ) : null}
+      {loading ? (
+        <>
+          <button className="logout" onClick={logout}>
+            E
+          </button>
+        </>
+      ) : (
+        <>
           <img
             className="logo"
             src="https://frontendsimplified.com/_nuxt/img/Frontend%20Simplified%20Logo.853fbda.png"
@@ -69,14 +76,7 @@ function Nav() {
             <button className="register" onClick={register}>
               Register
             </button>
-            
           </div>
-        </>
-      ) : (
-        <>
-              <button className="logout" onClick={logout}>
-                E
-              </button>
         </>
       )}
     </div>

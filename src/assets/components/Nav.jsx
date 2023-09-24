@@ -55,30 +55,20 @@ function Nav() {
           <div className="skeleton"></div>
           <div className="skeleton"></div>
         </>
-      ) : null}
-      {loading ? (
-        <>
-          <button className="logout" onClick={logout}>
-            E
-          </button>
-        </>
+      ) : user.email ? (
+        <button className="logout" onClick={logout}>
+          E
+        </button>
       ) : (
         <>
-          <img
-            className="logo"
-            src="https://frontendsimplified.com/_nuxt/img/Frontend%20Simplified%20Logo.853fbda.png"
-            alt=""
-          />
-          <div className="nav__buttons">
-            <button className="login" onClick={login}>
-              Login
-            </button>
-            <button className="register" onClick={register}>
-              Register
-            </button>
-          </div>
+        <img src="https://frontendsimplified.com/_nuxt/img/Frontend%20Simplified%20Logo.853fbda.png" alt="" className="logo" />
+        <div className="nav__buttons">
+          <button className="login" onClick={login}>Login</button>
+          <button className="register" onClick={register}>Register</button>
+        </div>
         </>
-      )}
+      )
+      }
     </div>
   );
 }

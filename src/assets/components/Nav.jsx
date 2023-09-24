@@ -57,7 +57,7 @@ function Nav() {
         </>
       ) : user.email ? (
         <button className="logout" onClick={logout}>
-          E
+          {user.email[0]}
         </button>
       ) : (
         <>

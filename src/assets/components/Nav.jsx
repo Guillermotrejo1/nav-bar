@@ -10,6 +10,7 @@ import {
 function Nav() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState()
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -32,16 +33,16 @@ function Nav() {
       });
   }
   function login() {
+    setLoading(true);
     signInWithEmailAndPassword(auth, "eagles@gmail.com", "123456")
       .then(({ user }) => {
-        console.log(user);
-        setUser(user);
+        setEmail(user.email);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
-
+    }
   function logout() {
     signOut(auth);
     setUser({});
@@ -49,14 +50,13 @@ function Nav() {
 
   return (
     <div className="container">
-      {loading ? (
+      {
+        loading ? <><div className="skeleton"></div>
+        <div className="skeleton"></div></> : null
+      }
+      {loading === false ? (
         <>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton__logout"></div>
-        </>
-      ) : (
-        <>
+          
           <img
             className="logo"
             src="https://frontendsimplified.com/_nuxt/img/Frontend%20Simplified%20Logo.853fbda.png"
@@ -69,12 +69,14 @@ function Nav() {
             <button className="register" onClick={register}>
               Register
             </button>
-            <span className="logout__wrapper">
+            
+          </div>
+        </>
+      ) : (
+        <>
               <button className="logout" onClick={logout}>
                 E
               </button>
-            </span>
-          </div>
         </>
       )}
     </div>
